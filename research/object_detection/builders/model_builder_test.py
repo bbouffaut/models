@@ -13,6 +13,9 @@
 # limitations under the License.
 # ==============================================================================
 
+# %% markdown
+# %%
+
 """Tests for object_detection.models.model_builder."""
 
 from absl.testing import parameterized

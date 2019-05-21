@@ -4,6 +4,7 @@
 # %% markdown
 # # Imports
 # %%
+
 import numpy as np
 import os
 import six.moves.urllib as urllib
@@ -19,6 +20,8 @@ from matplotlib import pyplot as plt
 from PIL import Image
 
 # This is needed since the notebook is stored in the object_detection folder.
+os.chdir(os.getcwd())
+print(os.getcwd())
 sys.path.append("..")
 from object_detection.utils import ops as utils_ops
 
@@ -27,16 +30,17 @@ if StrictVersion(tf.__version__) < StrictVersion('1.12.0'):
 
 # %% markdown
 # ## Env setup
-# %%
+# %%hydrogen
 # This is needed to display the images.
 %matplotlib inline
 # %% markdown
 # ## Object detection imports
 # Here are the imports from the object detection module.
 # %%
-from utils import label_map_util
+from object_detection.utils import label_map_util
 
-from utils import visualization_utils as vis_util
+from object_detection.utils import visualization_utils as vis_util
+from object_detection.utils import timer as timer_util
 # %% markdown
 # # Model preparation
 # %% markdown
@@ -95,8 +99,10 @@ def load_image_into_numpy_array(image):
 # image1.jpg
 # image2.jpg
 # If you want to test the code with your images, just add path to the images to the TEST_IMAGE_PATHS.
-PATH_TO_TEST_IMAGES_DIR = 'test_images'
-TEST_IMAGE_PATHS = [ os.path.join(PATH_TO_TEST_IMAGES_DIR, 'image{}.jpg'.format(i)) for i in range(1, 3) ]
+PATH_TO_TEST_IMAGES_DIR = 'test_images_cameras'
+TEST_IMAGE_PATHS = [ os.path.join(PATH_TO_TEST_IMAGES_DIR, '{}'.format(name)) for name in os.listdir(PATH_TO_TEST_IMAGES_DIR) ]
+
+print(TEST_IMAGE_PATHS)
 
 # Size, in inches, of the output images.
 IMAGE_SIZE = (12, 8)
@@ -147,7 +153,9 @@ def run_inference_for_single_image(image, graph):
         output_dict['detection_masks'] = output_dict['detection_masks'][0]
   return output_dict
 # %%
+timer = timer_util.Timer()
 for image_path in TEST_IMAGE_PATHS:
+  timer.tic()
   image = Image.open(image_path)
   # the array based representation of the image will be used later in order to prepare the
   # result image with boxes and labels on it.
@@ -166,6 +174,8 @@ for image_path in TEST_IMAGE_PATHS:
       instance_masks=output_dict.get('detection_masks'),
       use_normalized_coordinates=True,
       line_thickness=8)
+  duration = timer.toc()
+  print("Walking time %s".format(duration))
   plt.figure(figsize=IMAGE_SIZE)
   plt.imshow(image_np)
 # %%
