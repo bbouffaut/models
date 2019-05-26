@@ -5,7 +5,7 @@ pipeline {
 
 	  stage('Pull on server') {
 	    steps {
-	      withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'bitbucket_rsa', keyFileVariable: 'FILE', passphraseVariable: '', usernameVariable: '')]) {
+	      withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'jenkins', keyFileVariable: 'FILE', passphraseVariable: '', usernameVariable: '')]) {
 	        dir(path: '/srv/1-workspace/notebooks/tensorflow-models') {
 	          sh '''
 	                      git config core.sshCommand \'ssh -i $FILE\'
