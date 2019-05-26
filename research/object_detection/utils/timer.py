@@ -16,7 +16,7 @@ class Timer(object):
 		self.diff = 0.
 		self.average_time = 0.
 
-  	def tic(self):
+	def tic(self):
     	# using time.time instead of time.clock because time time.clock
     	# does not normalize for multithreading
 		self.start_time = time.time()
