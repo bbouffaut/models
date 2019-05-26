@@ -5,10 +5,9 @@ pipeline {
 
 	  stage('Pull on server') {
 	    steps {
-	      withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'github', keyFileVariable: 'FILE', passphraseVariable: '', usernameVariable: '')]) {
+	      sshagent (credentials: ['jenkins_for_github']) {
 	        dir(path: '/srv/1-workspace/notebooks/tensorflow-models') {
 	          sh '''
-	                      git config core.sshCommand \'ssh -i $FILE\'
 	                      git config user.name "Baptiste Bouffaut"
 	                      git config user.email "baptiste.bouffaut@gmail.com"
 
