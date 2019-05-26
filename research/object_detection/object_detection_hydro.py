@@ -53,7 +53,11 @@ from object_detection.utils import timer as timer_util
 # By default we use an "SSD with Mobilenet" model here. See the [detection model zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md) for a list of other models that can be run out-of-the-box with varying speeds and accuracies.
 # %%
 # What model to download.
-MODEL_NAME = 'ssd_mobilenet_v1_coco_2017_11_17'
+#MODEL_NAME = 'ssd_mobilenet_v1_coco_2017_11_17'  #4sec but detect badly
+#MODEL_NAME = 'faster_rcnn_inception_v2_coco_2018_01_28' #15sec -> 10sec detect fine
+#MODEL_NAME = 'faster_rcnn_nas_coco_2018_01_28' #NOK: errors when running
+#MODEL_NAME = 'mask_rcnn_inception_v2_coco_2018_01_28' # 20sec -> 12sec detection OK + Mask
+MODEL_NAME = 'ssd_resnet50_v1_fpn_shared_box_predictor_640x640_coco14_sync_2018_07_03' #14sec -> 9sec detection OK
 MODEL_FILE = MODEL_NAME + '.tar.gz'
 DOWNLOAD_BASE = 'http://download.tensorflow.org/models/object_detection/'
 
