@@ -6,9 +6,6 @@
 # %%
 
 # cd into local dir so that local modules can be loaded
-%dirs
-%cd tensorflow-models/research/object_detection
-
 import numpy as np
 import os
 import six.moves.urllib as urllib
@@ -34,7 +31,7 @@ if StrictVersion(tf.__version__) < StrictVersion('1.12.0'):
 # ## Env setup
 # %%hydrogen
 # This is needed to display the images.
-%matplotlib inline
+
 # %% markdown
 # ## Object detection imports
 # Here are the imports from the object detection module.

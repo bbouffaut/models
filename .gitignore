@@ -99,3 +99,7 @@ tutorials/embedding/text8
 tutorials/embedding/questions-words.txt
 
 samples/outreach/blogs/segmentation_blogpost/carvana-image-masking-challenge/
+
+# do not version files compiled by protobuf and test images
+*_pb2.py
+*.jpg
