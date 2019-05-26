@@ -8,10 +8,9 @@ pipeline {
 	      withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'jenkins_for_github', keyFileVariable: 'FILE', passphraseVariable: '', usernameVariable: '')]) {
 	        dir(path: '/srv/1-workspace/notebooks/tensorflow-models') {
 	          sh '''
-	                      git config --local core.sshCommand \'ssh -i $FILE\'
+	                      git config --local core.sshCommand \'ssh -i -vvv $FILE\'
 	                      git config --local user.name "Baptiste Bouffaut"
 	                      git config --local user.email "baptiste.bouffaut@gmail.com"
-												git config --local user.username "bbouffaut"
 
 	                      git fetch origin
 	                      git checkout ${GIT_BRANCH}
