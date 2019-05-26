@@ -177,7 +177,7 @@ for image_path in TEST_IMAGE_PATHS:
       use_normalized_coordinates=True,
       line_thickness=8)
   duration = timer.toc()
-  print("Walking time {} msec".format(duration))
+  print("Walking time {} sec".format(duration))
   plt.figure(figsize=IMAGE_SIZE)
   plt.imshow(image_np)
 # %%
