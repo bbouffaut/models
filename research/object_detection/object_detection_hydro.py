@@ -57,7 +57,8 @@ from object_detection.utils import timer as timer_util
 #MODEL_NAME = 'faster_rcnn_inception_v2_coco_2018_01_28' #15sec -> 10sec detect fine
 #MODEL_NAME = 'faster_rcnn_nas_coco_2018_01_28' #NOK: errors when running
 #MODEL_NAME = 'mask_rcnn_inception_v2_coco_2018_01_28' # 20sec -> 12sec detection OK + Mask
-MODEL_NAME = 'ssd_resnet50_v1_fpn_shared_box_predictor_640x640_coco14_sync_2018_07_03' #14sec -> 9sec detection OK
+#MODEL_NAME = 'ssd_resnet50_v1_fpn_shared_box_predictor_640x640_coco14_sync_2018_07_03' #14sec -> 9sec detection OK
+MODEL_NAME = 'ssd_resnet50_v1_fpn_shared_box_predictor_640x640_coco14_sync_2018_07_03' #7sec detection OK
 MODEL_FILE = MODEL_NAME + '.tar.gz'
 DOWNLOAD_BASE = 'http://download.tensorflow.org/models/object_detection/'
 
