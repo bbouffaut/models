@@ -17,6 +17,7 @@ from utils import ops as utils_ops
 if StrictVersion(tf.__version__) < StrictVersion('1.12.0'):
   raise ImportError('Please upgrade your TensorFlow installation to v1.12.*.')
 
+sys.path.append("..")
 from utils import label_map_util
 from object_detection.utils import timer as timer_util
 
