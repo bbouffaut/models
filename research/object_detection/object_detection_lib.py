@@ -38,10 +38,10 @@ def run_inference_for_single_image(image, graph):
 				'num_detections', 'detection_boxes', 'detection_scores',
 				'detection_classes', 'detection_masks'
 			]:
-			tensor_name = key + ':0'
-			if tensor_name in all_tensor_names:
-				tensor_dict[key] = tf.get_default_graph().get_tensor_by_name(
-				tensor_name)
+				tensor_name = key + ':0'
+				if tensor_name in all_tensor_names:
+					tensor_dict[key] = tf.get_default_graph().get_tensor_by_name(
+					tensor_name)
 
 			if 'detection_masks' in tensor_dict:
 				# The following processing is only for single image
