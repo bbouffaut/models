@@ -1,9 +1,10 @@
+%dirs
+%cd tensorflow-models/research/object_detection
+
 from object_detection_lib import detect_objects
 from utils import visualization_utils as vis_util
 from matplotlib import pyplot as plt
 
-%dirs
-%cd tensorflow-models/research/object_detection
 %matplotlib inline
 
 output_dict, image_np = detect_objects('ssd_mobilenet_v1_ppn_shared_box_predictor_300x300_coco14_sync_2018_07_03')
