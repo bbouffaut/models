@@ -90,9 +90,6 @@ def detect_objects(model_name):
 	# Path to frozen detection graph. This is the actual model that is used for the object detection.
 	PATH_TO_FROZEN_GRAPH = os.path.join(MODEL_DIR,MODEL_NAME + '/frozen_inference_graph.pb')
 
-	# List of the strings that is used to add correct label for each box.
-	PATH_TO_LABELS = os.path.join('data', 'mscoco_label_map.pbtxt')
-
 	opener = urllib.request.URLopener()
 	opener.retrieve(DOWNLOAD_BASE + MODEL_FILE, os.path.join(MODEL_DIR,MODEL_FILE))
 	tar_file = tarfile.open(os.path.join(MODEL_DIR,MODEL_FILE))
