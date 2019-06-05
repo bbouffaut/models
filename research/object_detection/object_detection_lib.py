@@ -117,6 +117,8 @@ def detect_objects(model_name):
 
 	print(TEST_IMAGE_PATHS)
 
+	result = []
+
 	timer = timer_util.Timer()
 	for image_path in TEST_IMAGE_PATHS:
 		timer.tic()
@@ -131,4 +133,6 @@ def detect_objects(model_name):
 		duration = timer.toc()
 		output_dict['proc_duration'] = duration
 
-		return output_dict,image_np
+		result[image_path] = output_dict, image_np
+
+	return result
