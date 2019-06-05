@@ -1,6 +1,7 @@
 %dirs
 %cd tensorflow-models/research/object_detection
 
+import os
 from object_detection_lib import detect_objects
 from utils import visualization_utils as vis_util
 from object_detection.utils import label_map_util
