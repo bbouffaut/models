@@ -117,9 +117,6 @@ def detect_objects(model_name):
 
 	print(TEST_IMAGE_PATHS)
 
-	# Size, in inches, of the output images.
-	IMAGE_SIZE = (12, 8)
-
 	timer = timer_util.Timer()
 	for image_path in TEST_IMAGE_PATHS:
 		timer.tic()
